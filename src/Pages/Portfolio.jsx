@@ -28,7 +28,7 @@ export default function Portfolio() {
             <Divider/>
             <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
                 {projectList.map(project=>(
-                    <Image w='100%' h='100%' key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} onClick={()=>preview(props.img)}/>
+                    <Image w='100%' h='100%' loading={'lazy'} key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} onClick={()=>preview(props.img)}/>
                 ))}
             </Grid>
             <Link to='/projects'><Text _hover={{borderBottom:'2px solid orange',transition:'500ms'}} w='fit-content' mx={'auto'}>View all works</Text></Link> 

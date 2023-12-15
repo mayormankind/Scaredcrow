@@ -1,14 +1,15 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Icon, Text } from '@chakra-ui/react'
 import React from 'react'
 import PageContainer from '../Components/PageContainer'
 import Divider from '../Components/Divider'
+import { Ri24HoursFill } from 'react-icons/ri'
 
 export default function Services() {
     const services = [
-        {id:0,title:'Logo design',detail:'we make top notch designs ranging from your brands to anything you can think of'},
-        {id:1,title:'Branding',detail:'we make top notch designs ranging from your brands to anything you can think of'},
-        {id:2,title:'Graphics design',detail:'we make top notch designs ranging from your brands to anything you can think of'},
-        {id:3,title:'Training',detail:'we make top notch designs ranging from your brands to anything you can think of'},
+        {id:0,title:'Logo design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<Ri24HoursFill/>},
+        {id:1,title:'Branding',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<Ri24HoursFill/>},
+        {id:2,title:'Graphics design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<Ri24HoursFill/>},
+        {id:3,title:'Training',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<Ri24HoursFill/>},
     ]
   return (
     <PageContainer id='about'>
@@ -17,7 +18,8 @@ export default function Services() {
             <Divider/>
             <Flex flexDir={{sm:'row',base:'column'}} gap='20px'>
                 {services.map(service=>(
-                    <Flex flexDir={'column'} gap='10px' height='100%' minH={'250px'} textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange'>
+                    <Flex flexDir={'column'} gap='10px' height='100%' minH={'250px'} textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange' justify='center' align='center' boxShadow={'lg'}>
+                        <Icon fontSize='30px'>{service.icon}</Icon>
                         <Text as='h3' fontWeight={'bold'} color='orange'>{service.title}</Text>
                         <p>{service.detail}</p>
                     </Flex>

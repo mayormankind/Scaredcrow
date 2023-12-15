@@ -16,7 +16,7 @@ export default function AllProjects() {
     <Flex flexDir='column' gap='10px'>
       <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
         {projectList.map(project=>(
-          <Image w='100%' h='100%' key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'}/>
+          <Image w='100%' h='100%' key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} loading={'lazy'}/>
         ))}
       </Grid>
       <Footer/>
