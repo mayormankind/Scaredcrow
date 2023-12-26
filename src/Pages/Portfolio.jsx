@@ -28,7 +28,12 @@ export default function Portfolio() {
             <Divider/>
             <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
                 {projectList.map(project=>(
-                    <Image w='100%' h='100%' loading={'lazy'} key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} onClick={()=>preview(props.img)}/>
+                    <Link to='/project'>
+                        <Flex h='100%' w='100%' pos='relative' overflow='hidden' _after={{content:'""',display:'block',transition:'0.5s',pos:'absolute',h:'200px',w:'200px',bg:'orange.400',bottom:'90%',right:'90%',borderRadius:'50%',filter:'blur(5px)',zIndex:'-1'}} _hover={{_after:{bottom:'0',left:'0',transition:'1s',h:'100%',w:'100%',borderRadius:'none'}}}>
+                            <Image w='100%' h='100%' transition='1s' loading={'lazy'} key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'}/>
+                        </Flex>
+                        {/* <Image w='100%' h='100%' loading={'lazy'} key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} onClick={()=>preview(props.img)}/> */}
+                    </Link>
                 ))}
             </Grid>
             <Link to='/projects'><Text _hover={{borderBottom:'2px solid orange',transition:'500ms'}} w='fit-content' mx={'auto'}>View all works</Text></Link> 

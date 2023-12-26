@@ -1,6 +1,9 @@
 import { Box, Flex, Grid, Text,Image } from '@chakra-ui/react'
 import React from 'react'
-import Footer from '../Components/Footer'
+import Footer from '../Components/Footer';
+import Header from '../Components/Header';
+import PageContainer from '../Components/PageContainer';
+import Divider from '../Components/Divider';
 
 export default function AllProjects() {
   const projectList = [
@@ -13,12 +16,19 @@ export default function AllProjects() {
     {id:'12',projectName:`Todo App`,projectDetails:'A simple To-do app for personal use.',projectImage:'images/todo.PNG',pref:'https://todo-with-ts-rho.vercel.app',github:'https://github.com/mayormankind/todoWithTs',frameworks:['HTML','CSS','typescript','javascript']},
 ];   
   return (
-    <Flex flexDir='column' gap='10px'>
-      <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
-        {projectList.map(project=>(
-          <Image w='100%' h='100%' key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} loading={'lazy'}/>
-        ))}
-      </Grid>
+    <Flex flexDir='column' w='100%' h='100%'>
+      <Header bg='black'/>
+      <PageContainer>
+        <Flex flexDir='column' gap='20px' textAlign='center' w='100%' h='100%'>
+          <Text as='h1' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>My design jacket</Text>
+          <Divider/>
+          <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
+            {projectList.map(project=>(
+              <Image w='100%' h='100%' loading={'lazy'} key={project.id} boxShadow='md' src={project.projectImage} borderRadius={'10px'} onClick={()=>preview(props.img)}/>
+            ))}
+          </Grid>
+        </Flex>
+      </PageContainer>
       <Footer/>
     </Flex>
   )

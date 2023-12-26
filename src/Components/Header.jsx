@@ -1,8 +1,9 @@
 import { HStack, Box, Text, Flex, IconButton } from '@chakra-ui/react'
 import React, { useState } from 'react';
 import {RiCloseFill,RiMenu3Fill} from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header({bg}) {
     const [ menu, setMenu ] = useState(false)
     const links=[
         {id:0,label:'About me',href:'#about'},
@@ -11,9 +12,9 @@ export default function Header() {
         {id:3,label:'Contacts',href:'#contact'},
     ]
   return (
-    <Box p='20px' w='100%' mx='auto' maxW='1100px' color='white'>
-        <Flex justify='space-between' align='center' w='100%' h='100%'>
-            <Text fontWeight='bold' fontSize='20px'>Scared crow</Text>
+    <Box p='20px' w='100%' color='white' bg={bg?bg:'transparent'}>
+        <Flex justify='space-between' align='center' w='100%' h='100%' mx='auto' maxW='1100px'>
+            <Link to='/'><Text fontWeight='bold' fontSize='20px'>Scared crow</Text></Link>
             <Flex align={{sm:'end',base:'center'}} w={{sm:'40%',base:'100%'}} bg={{sm:'transparent',base:'rgb(0,0,0)'}} pos={{sm:'initial',base:'fixed'}} h='100%' top='0' left='0' zIndex={{sm:'10',base:'30'}} justify={{sm:'space-between',base:'space-around'}} flexDir={{sm:'row',base:'column'}} display={{sm:'flex', base:menu?'flex':'none'}}>
                 {links.map(link=>(
                     <Text as='a' key={link.id} color='white' onClick={()=>setMenu(false)} href={link.href} _hover={{borderBottom:'1px solid orange'}}>{link.label}</Text>
