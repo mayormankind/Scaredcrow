@@ -1,4 +1,4 @@
-import { Image, Flex, Text } from '@chakra-ui/react'
+import { Box, Image, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
 import Contact from './Contact'
 import Header from '../Components/Header'
@@ -16,29 +16,28 @@ export default function DesignDetail() {
     {id:0,label:'Figma',icon:<FaFigma/>,color:'blue.500'},
   ];
   return (
-    <Flex w='100%' h='100%' flexDir='column'>
+      <Flex w='100%' h='100%' flexDir='column' pos='relative'>
         <Header bg='black'/>
-        <PageContainer>
-          <Flex flexDir='column' gap='20px'>
-              <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}} textAlign='center'>Project Gamma</Text>
-              <Flex>
-                <Image src='images/pnt1.PNG' loading='lazy' w='100%' h='100%'/>
-              </Flex>
-              <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>Tools used:</Text>
-              <Flex gap='20px'>
-                {tools.map(tool=>(
-                  <Flex flexDir='column' key={tool.id}>
-                    <Text as='i' fontSize='24px' textAlign='center' color={tool.color}>{tool.icon}</Text>
-                    <Text>{tool.label}</Text>
-                  </Flex>
-                ))}
-              </Flex>
-              <Flex>
-                <Text as='p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sint quibusdam praesentium consectetur quo fugit animi necessitatibus nemo sed officiis quod provident ipsam maxime expedita eligendi tempore voluptate corporis excepturi, nam vel reprehenderit accusantium itaque odio. Dicta aperiam eveniet temporibus asperiores repellat quas maxime adipisci itaque alias expedita obcaecati rem iure debitis quisquam unde, eum ratione quo laborum quae repellendus natus ab voluptatum consequatur! Maxime atque iusto excepturi aspernatur. Impedit voluptatem ipsum nostrum hic quae tenetur, sit, quos doloribus blanditiis ut expedita autem sed molestias pariatur voluptatibus maxime labore minima maiores id voluptas. Temporibus aspernatur esse commodi perferendis veniam minima!</Text>
-              </Flex>
-          </Flex>
-        </PageContainer>
-        {/* <Contact/> */}
+          <PageContainer>
+            <Flex flexDir='column' gap='20px'>
+                <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}} textAlign='center'>Project Gamma</Text>
+                <Flex>
+                  <Image src='images/7.jpg' loading='lazy' w='100%' h='100%'/>
+                </Flex>
+                <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>Tools used:</Text>
+                <Flex justify={'space-between'} flexWrap='wrap'>
+                  {tools.map(tool=>(
+                    <Flex flexDir='column' key={tool.id}>
+                      <Text as='i' fontSize={{sm:'24px',base:'20px'}} textAlign='center' color={tool.color}>{tool.icon}</Text>
+                      <Text fontSize={{sm:'15px',base:'13px'}}>{tool.label}</Text>
+                    </Flex>
+                  ))}
+                </Flex>
+                <Flex>
+                  <Text as='p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sint quibusdam praesentium consectetur quo fugit animi necessitatibus nemo sed officiis quod provident ipsam maxime expedita eligendi tempore voluptate corporis excepturi, nam vel reprehenderit accusantium itaque odio. Dicta aperiam eveniet temporibus asperiores repellat quas maxime adipisci itaque alias expedita obcaecati rem iure debitis quisquam unde, eum ratione quo laborum quae repellendus natus ab voluptatum consequatur! Maxime atque iusto excepturi aspernatur. Impedit voluptatem ipsum nostrum hic quae tenetur, sit, quos doloribus blanditiis ut expedita autem sed molestias pariatur voluptatibus maxime labore minima maiores id voluptas. Temporibus aspernatur esse commodi perferendis veniam minima!</Text>
+                </Flex>
+            </Flex>
+          </PageContainer>
         <Footer/>
     </Flex>
   )
