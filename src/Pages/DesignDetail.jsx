@@ -25,11 +25,9 @@ export default function DesignDetail() {
             return item.pid == id
         })[0]
         setDetails(individualDesign);
-        setCurrent(details?.images[0]);
       });
-  },[id])
-  console.log(details)
-  console.log(details?.images[0])
+      {details && setCurrent(details?.images[0])};
+    },[id])
 
   const iconCheck = (icon) =>{
     if(icon == 'SiAdobeillustrator') return <SiAdobeillustrator/>
@@ -46,7 +44,7 @@ export default function DesignDetail() {
           <PageContainer>
             <Flex flexDir='column' gap='20px'>
                 <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}} textAlign='center'>{details?.title}</Text>
-                <Flex bg='red' mx='auto' w={{sm:'70%',base:'100%'}} h='100%'>
+                <Flex mx='auto' w={{sm:'70%',base:'100%'}} h='100%'>
                   <Image src={currImage} loading='lazy' w='100%' h='100%' objectFit={'cover'}/>
                 </Flex>
                 <Grid gridTemplateColumns={{sm:'repeat(4,1fr)',base:'repeat(2,1fr)'}} gap='20px' w='100%' h='100%' justifyItems='center'>

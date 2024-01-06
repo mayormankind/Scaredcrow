@@ -15,15 +15,9 @@ export default function Portfolio() {
     
     
     useEffect(()=>{
-        async function unsub(){
-            const call = await getProjects(setProjects);
-        } 
-        return ()=>{
-            unsub();
-            // setLoading(false);
-        }
+        const call = getProjects(setProjects);
     },[])
-    console.log(projects)
+      
     const preview = (img) =>{
         setPreview(true);
         setImage(img);
