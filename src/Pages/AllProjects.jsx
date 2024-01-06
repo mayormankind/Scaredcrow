@@ -17,7 +17,7 @@ export default function AllProjects() {
         } 
         return ()=>{
             unsub();
-            setLoading(false);
+            // setLoading(false);
         }
     },[])
     console.log(projects);
@@ -30,11 +30,12 @@ export default function AllProjects() {
           <Text as='h1' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>My design jacket</Text>
           <Divider/>
           <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
-            {loading ? <Text textAlign='center'>Please wait, loading...</Text> : (projects.map(project=>(
+            {/* {loading ? <Text textAlign='center' >Please wait, loading...</Text> : (projects.map(project=>( */}
+            {projects.map(project=>(
               <Link to={`/project/${project.pid}`} key={project.pid}>
                 <Image w='100%' h='100%' loading={'lazy'} key={project.pid} boxShadow='md' src={project.images[0]} borderRadius={'10px'}/>
               </Link>
-            )))}
+            ))}
           </Grid>
         </Flex>
       </PageContainer>
