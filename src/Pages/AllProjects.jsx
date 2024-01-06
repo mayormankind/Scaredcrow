@@ -12,13 +12,14 @@ export default function AllProjects() {
   const [ loading, setLoading ] =  useState(true);
     
     useEffect(()=>{
-        async function unsub(){
-            const call = await getProjects(setProjects);
-        } 
-        return ()=>{
-            unsub();
-            // setLoading(false);
-        }
+        // async function unsub(){
+            // const call = await getProjects(setProjects);
+            const call = getProjects(setProjects);
+        // } 
+        // return ()=>{
+        //     unsub();
+        //     // setLoading(false);
+        // }
     },[])
     console.log(projects);
 
