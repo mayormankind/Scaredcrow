@@ -31,7 +31,7 @@ export default function AllProjects() {
           <Divider/>
           <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
             {/* {loading ? <Text textAlign='center' >Please wait, loading...</Text> : (projects.map(project=>( */}
-            {projects.map(project=>(
+            {projects && projects.map(project=>(
               <Link to={`/project/${project.pid}`} key={project.pid}>
                 <Image w='100%' h='100%' loading={'lazy'} key={project.pid} boxShadow='md' src={project.images[0]} borderRadius={'10px'}/>
               </Link>
