@@ -11,7 +11,7 @@ export default function Contact() {
         {id:1,label:'Telephone number',icon:<RiPhoneLine/>,detail:'+234-7084857214',href:'tel:07084857214'},
         {id:3,label:'Instagram',icon:<RiInstagramFill/>,detail:'@scaredcrow',href:'https://www.instagram.com/scaredcrow'},
         {id:4,label:'Facebook Page',icon:<RiFacebookFill/>,detail:'@scaredcrow',href:'https://www.facebook.com/scaredcrow'},
-        {id:4,label:'TikTok',icon:<FaTiktok/>,detail:'@scaredcrow',href:'https://www.tiktok.com/scaredcrow'},
+        {id:5,label:'TikTok',icon:<FaTiktok/>,detail:'@scaredcrow',href:'https://www.tiktok.com/scaredcrow'},
     ]
   return (
     <PageContainer id='contact'>

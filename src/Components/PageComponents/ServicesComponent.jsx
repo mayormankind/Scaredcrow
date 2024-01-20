@@ -13,6 +13,7 @@ export default function ServicesComponent() {
         {id:4,title:'Mockup Design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiCarWashingFill/>},
         {id:5,title:'Book cover Design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiCarWashingFill/>},
         {id:6,title:'Poetry writing',detail:'If making you feelings known is a problem, this is your stop. ',icon:<RiCarWashingFill/>},
+        {id:7,title:'Celebration wishes',detail:'If making you feelings known is a problem, this is your stop. ',icon:<RiCarWashingFill/>},
     ]
   return (
     <PageContainer id='skills'>
@@ -21,7 +22,7 @@ export default function ServicesComponent() {
             <Divider/>
             <Grid gridTemplateColumns={{sm:'repeat(4,1fr)',base:'repeat(1,1fr)'}} gap='20px' w='100%' h='100%' justifyItems='center'>
                 {services.map(service=>(
-                    <Flex flexDir={'column'} gap='10px' mx='auto' minH={'250px'} maxW='250px' w='100%' h='100%' textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange' justify='center' align='center' boxShadow={'lg'}>
+                    <Flex flexDir={'column'} key={service.id} gap='10px' mx='auto' minH={'250px'} maxW='250px' w='100%' h='100%' textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange' justify='center' align='center' boxShadow={'lg'}>
                         <Text as='i' fontSize='30px'>{service.icon}</Text>                        
                         <Text as='h3' fontWeight={'bold'} color='orange'>{service.title}</Text>
                         <p>{service.detail}</p>

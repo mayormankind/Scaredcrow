@@ -29,7 +29,6 @@ export default function NewProject() {
         const promises = imageArray.map(async(image) =>{
             try{
                 const imagesRef = ref(store,`samuel/${uuid()}`);
-                // await uploadBytesResumable(imagesRef,image);
                 const uploadTask = uploadBytesResumable(imagesRef,image);
                 uploadTask.on(
                     (err)=>{},
@@ -40,7 +39,6 @@ export default function NewProject() {
                         })
                     }
                 )
-                // const imageURL = await imagesRef.getDownloadURL();
             }catch(err){
                 console.log(err)
                 alert('an error occured while uploading images');
@@ -78,8 +76,6 @@ export default function NewProject() {
       }
     }
 
-
-
   return (
     <Flex w='100%' h='100vh' bg='white' pos='relative'>
         <Link to='/'>
@@ -101,8 +97,8 @@ export default function NewProject() {
                     <label style={{fontWeight:'bold'}}>Tools used:</label>
                     <CheckboxGroup colorScheme='green'>
                         <Stack justify='space-between' flexWrap='wrap' direction={'row'} gap='10px' p='10px' border='1px solid black'>
-                            {options.map((option)=>(
-                                <Checkbox value={option.value} size='lg'  checked={checkBoxes.some(
+                            {options.map((option,id)=>(
+                                <Checkbox value={option.value} size='lg' key={id} checked={checkBoxes.some(
                                     (selected) => selected.value === option.value
                                 )} onChange={()=>handleBoxes(option)}textTransform={'capitalize'}>{option.value}</Checkbox>
                                 ))}
