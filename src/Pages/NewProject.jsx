@@ -60,7 +60,7 @@ export default function NewProject() {
             setCheckBoxes((prev)=>[...prev,option]);
         }
     }
-    console.log(checkBoxes);
+    
     const addProject = async(e) =>{
         try{
             await setDoc(doc(db, "scaredcrow-design", uuid()), {
