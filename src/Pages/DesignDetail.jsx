@@ -25,8 +25,8 @@ export default function DesignDetail() {
             return item.pid == id
         })[0]
         setDetails(individualDesign);
+        setCurrent(details?.images[0]);
       });
-      {details && setCurrent(details?.images[0])};
     },[id])
 
   const iconCheck = (icon) =>{
@@ -47,7 +47,7 @@ export default function DesignDetail() {
                 <Flex mx='auto' w={{sm:'70%',base:'100%'}} h='100%'>
                   <Image src={currImage} loading='lazy' w='100%' h='100%' objectFit={'cover'}/>
                 </Flex>
-                <Grid gridTemplateColumns={{sm:'repeat(4,1fr)',base:'repeat(2,1fr)'}} gap='20px' w='100%' h='100%' justifyItems='center'>
+                <Grid gridTemplateColumns={'repeat(auto-fit, minmax(5rem, 1fr))'} w='100%' gap='20px'>
                   {details?.images.map(image=>(
                     <Image src={image} loading='lazy' w='100%' h='100%' onClick={()=>setCurrent(image)}/>
                   ))}

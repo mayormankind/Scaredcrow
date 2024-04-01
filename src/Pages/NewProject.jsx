@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, IconButton, Heading, Input, Text, CheckboxGroup, Stack, Checkbox } from '@chakra-ui/react';
+import { Box, Button, Divider, Flex, Grid, IconButton, Heading, Input, Text, CheckboxGroup, Stack, Checkbox } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { v4 as uuid} from 'uuid';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
@@ -77,32 +77,32 @@ export default function NewProject() {
     }
 
   return (
-    <Flex w='100%' h='100vh' bg='white' pos='relative'>
+    <Flex w='100%' h='100vh' bg='whitesmoke' pos='relative'>
         <Link to='/'>
             <IconButton icon={<FaHome/>} pos='absolute' top='10px' left='10px' variant='ghost'/>
         </Link>
-        <Flex flexDir='column' w='100%' maxW='400px' color='black' m='auto' gap='10px' boxShadow='dark-lg' p='20px' borderRadius={'10px'}>
+        <Flex flexDir='column' w='100%' maxW='400px' color='black' m='auto' gap='10px' boxShadow='lg' p='20px' borderRadius={'10px'} bg='white'>
             <Heading fontSize={{sm:'25px',base:'20px'}} fontWeight='bold' textAlign='center'>Hey Sam, Oko Blessing!</Heading>
             <Divider/>
             <Flex gap={{sm:'15px',base:'10px'}} flexDir='column' w='100%'>
                 <Box>
                     <label style={{fontWeight:'bold'}}>Title</label>
-                    <Input size='lg' outline='1px solid orange' type='text' placeholder='Archers...' onChange={(e)=>{setProjectInfo({...projectInfo,title:e.target.value})}} value={projectInfo.title}/>
+                    <Input size='sm' outline='1px solid orange' type='text' placeholder='Archers...' onChange={(e)=>{setProjectInfo({...projectInfo,title:e.target.value})}} value={projectInfo.title}/>
                 </Box>
                 <Box>
                     <label style={{fontWeight:'bold'}}>Design Overview</label>
-                    <Input size='lg' type='text' outline='1px solid orange' placeholder='I designed this logo for Archers...' onChange={(e)=>{setProjectInfo({...projectInfo,overview:e.target.value})}} value={projectInfo.overview}/>
+                    <Input size='sm' type='text' outline='1px solid orange' placeholder='I designed this logo for Archers...' onChange={(e)=>{setProjectInfo({...projectInfo,overview:e.target.value})}} value={projectInfo.overview}/>
                 </Box>
                 <Flex flexDir='column'>
                     <label style={{fontWeight:'bold'}}>Tools used:</label>
                     <CheckboxGroup colorScheme='green'>
-                        <Stack justify='space-between' flexWrap='wrap' direction={'row'} gap='10px' p='10px' border='1px solid black'>
+                        <Grid p='10px' border='1px solid black' gridTemplateColumns={'repeat(auto-fit, minmax(7rem, 1fr))'} w='100%' gap='20px'>
                             {options.map((option,id)=>(
                                 <Checkbox value={option.value} size='lg' key={id} checked={checkBoxes.some(
                                     (selected) => selected.value === option.value
                                 )} onChange={()=>handleBoxes(option)}textTransform={'capitalize'}>{option.value}</Checkbox>
                                 ))}
-                        </Stack>
+                        </Grid>
                     </CheckboxGroup>
                 </Flex>
                 <Input type='file' display='none' id='images' multiple accept={'images/*'} onChange={selectImages}/>

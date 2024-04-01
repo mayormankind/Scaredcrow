@@ -27,12 +27,13 @@ export default function Portfolio() {
         <Flex flexDir='column' gap='20px' textAlign='center' w='100%' h='100%'>
             <Text fontWeight='bold' fontSize='20px'>Portfolio</Text>
             <Divider/>
-            <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
+            <Grid gridTemplateColumns={'repeat(auto-fit, minmax(5rem, 1fr))'} w='100%' gap='20px'>
                 {/* {loading ? <Text textAlign='center'>Please wait, loading...</Text> : (projects.map(project=>( */}
                 {projects && projects.map(project=>(
                     <Link to={`/project/${project.pid}`} key={project.pid}>
-                        <Flex h='100%' w='100%' pos='relative' overflow='hidden' _after={{content:'""',display:'block',transition:'0.5s',pos:'absolute',h:'200px',w:'200px',bg:'orange.400',bottom:'90%',right:'90%',borderRadius:'50%',filter:'blur(5px)',zIndex:'-1'}} _hover={{_after:{bottom:'0',left:'0',transition:'1s',h:'100%',w:'100%',borderRadius:'none'}}}>
+                        <Flex h='100%' w='100%' flexDir='column'>
                             <Image w='100%' h='100%' transition='1s' loading={'lazy'} key={project.pid} boxShadow='md' src={project.images[0]} borderRadius={'10px'}/>
+                            <Text>{project.title}</Text>
                         </Flex>
                     </Link>
                 ))}

@@ -1,7 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
-import React from 'react'
-import PageContainer from '../Components/PageContainer'
-import Divider from '../Components/Divider'
+import React from 'react';
 import AboutComponent from '../Components/PageComponents/AboutComponent'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'

@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Text } from '@chakra-ui/react'
+import { Box, Flex, Grid, Icon, Text } from '@chakra-ui/react'
 import React from 'react'
 import PageContainer from '../Components/PageContainer'
 import { RiFacebookFill, RiInstagramFill, RiInstagramLine, RiMailLine, RiPhoneLine } from 'react-icons/ri'
@@ -18,17 +18,17 @@ export default function Contact() {
         <Flex flexDir='column' gap='20px' w='100%' h='100%' textAlign='center'>
             <Text fontWeight='bold' fontSize='20px'>Contacts</Text>
             <Divider/>
-            <Flex justify='space-between' flexDir={{sm:'row',base:'column'}} align='center' w='100%' h='100%' gap='10px'>
+            <Grid gridTemplateColumns={'repeat(auto-fit, minmax(15rem, 1fr))'} w='100%' gap='20px'>
                 {contacts.map(contact=>(
                     <Box w='100%' h='100%' bg='lightgray' p='10px' borderRadius='lg' key={contact.id} cursor='pointer' _hover={{transform:'translateY(-10px)'}} as='a' href={contact.href}>
-                        <Flex align='center' justify='center' gap='5px' w='100%' h='100%' textAlign='center'>
+                        <Flex align='center' justify='center' gap='5px' w='100%' textAlign='center'>
                             <Icon color='orange' fontSize='24px'>{contact.icon}</Icon>
                             <Text ml='5px' fontWeight='semibold' fontSize='15px'>{contact.label}</Text>
                         </Flex>
                         <Text fontSize='15px'>{contact.detail}</Text>
                     </Box>
                 ))}
-            </Flex>
+            </Grid>
         </Flex>
     </PageContainer>
   )
