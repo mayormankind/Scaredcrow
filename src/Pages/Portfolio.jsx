@@ -5,6 +5,7 @@ import Divider from '../Components/Divider';
 import { Link } from 'react-router-dom';
 import ImageViewer from '../Components/ImageVIewer';
 import { getProjects } from '../api';
+import { Reveal } from '../Components/Reveal';
 
 
 export default function Portfolio() {
@@ -25,20 +26,32 @@ export default function Portfolio() {
   return (
     <PageContainer id='portfolio'>
         <Flex flexDir='column' gap='20px' textAlign='center' w='100%' h='100%'>
-            <Text fontWeight='bold' fontSize='20px'>Portfolio</Text>
+            <Box mx='auto'>
+                <Reveal>
+                    <Text fontWeight='bold' fontSize='20px'>Portfolio</Text>
+                </Reveal>
+            </Box>
             <Divider/>
             <Grid gridTemplateColumns={'repeat(auto-fit, minmax(5rem, 1fr))'} w='100%' gap='20px'>
                 {/* {loading ? <Text textAlign='center'>Please wait, loading...</Text> : (projects.map(project=>( */}
                 {projects && projects.map(project=>(
                     <Link to={`/project/${project.pid}`} key={project.pid}>
                         <Flex h='100%' w='100%' flexDir='column'>
-                            <Image w='100%' h='100%' transition='1s' loading={'lazy'} key={project.pid} boxShadow='md' src={project.images[0]} borderRadius={'10px'}/>
-                            <Text>{project.title}</Text>
+                            <Reveal>
+                                <Image w='100%' h='100%' transition='1s' loading={'lazy'} key={project.pid} boxShadow='md' src={project.images[0]} borderRadius={'10px'}/>
+                            </Reveal>
+                            <Reveal>
+                                <Text>{project.title}</Text>
+                            </Reveal>
                         </Flex>
                     </Link>
                 ))}
             </Grid>
-            <Link to='/portfolio'><Text _hover={{borderBottom:'2px solid orange',transition:'500ms'}} w='fit-content' mx={'auto'}>View all works</Text></Link> 
+            <Box mx='auto'>
+                <Reveal>
+                    <Link to='/portfolio'><Text _hover={{borderBottom:'2px solid orange',transition:'500ms'}} w='fit-content' mx={'auto'}>View all works</Text></Link> 
+                </Reveal>
+            </Box>
         </Flex>
         {view && <ImageViewer image={image} setPreview={setPreview}/>}
     </PageContainer>

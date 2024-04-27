@@ -6,6 +6,7 @@ import PageContainer from '../Components/PageContainer';
 import Divider from '../Components/Divider';
 import { getProjects } from '../api';
 import { Link } from 'react-router-dom';
+import { Reveal } from '../Components/Reveal';
 
 export default function AllProjects() {
   const [ projects, setProjects ] =  useState([]);
@@ -22,7 +23,11 @@ export default function AllProjects() {
       <Header bg='black'/>
       <PageContainer>
         <Flex flexDir='column' gap='20px' textAlign='center' w='100%' h='100%'>
-          <Text as='h1' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>My design jacket</Text>
+          <Box mx='auto'>
+            <Reveal>
+              <Text as='h1' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>My design jacket</Text>
+            </Reveal>
+          </Box>
           <Divider/>
           <Grid gridTemplateColumns={{sm:'repeat(3,1fr)',base:'repeat(1,1fr)'}} gap='10px' w='100%' h='100%'>
             {/* {loading ? <Text textAlign='center' >Please wait, loading...</Text> : (projects.map(project=>( */}

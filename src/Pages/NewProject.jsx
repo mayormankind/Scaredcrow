@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, Grid, IconButton, Heading, Input, Text, CheckboxGroup, Stack, Checkbox } from '@chakra-ui/react';
+import { Box, Button, Divider, Flex, Grid, IconButton, Heading, Input, Text, CheckboxGroup, Checkbox } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { v4 as uuid} from 'uuid';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
@@ -107,7 +107,7 @@ export default function NewProject() {
                 </Flex>
                 <Input type='file' display='none' id='images' multiple accept={'images/*'} onChange={selectImages}/>
                 <label htmlFor='images' style={{fontWeight:'bold',textAlign:'center'}}>Select preview images</label>
-                <Button colorScheme='orange' size='lg' _hover={{variant:'outline'}} onClick={addProject}>Add design</Button>
+                <Button colorScheme='orange' size='md' fontSize='sm' _hover={{variant:'outline'}} onClick={addProject}>Add design</Button>
             </Flex>
         </Flex>
     </Flex>

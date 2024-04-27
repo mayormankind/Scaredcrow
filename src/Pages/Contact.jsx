@@ -4,29 +4,38 @@ import PageContainer from '../Components/PageContainer'
 import { RiFacebookFill, RiInstagramFill, RiInstagramLine, RiMailLine, RiPhoneLine } from 'react-icons/ri'
 import { FaTiktok } from 'react-icons/fa'
 import Divider from '../Components/Divider'
+import { Reveal } from '../Components/Reveal'
 
 export default function Contact() {
     const contacts = [
-        {id:0,label:'E-mail',icon:<RiMailLine/>,detail:'samueladetoye@gmail.com',href:'mailto:samueladetoye@gmail.com'},
-        {id:1,label:'Telephone number',icon:<RiPhoneLine/>,detail:'+234-7084857214',href:'tel:07084857214'},
-        {id:3,label:'Instagram',icon:<RiInstagramFill/>,detail:'@scaredcrow',href:'https://www.instagram.com/scaredcrow'},
-        {id:4,label:'Facebook Page',icon:<RiFacebookFill/>,detail:'@scaredcrow',href:'https://www.facebook.com/scaredcrow'},
+        {id:0,label:'E-mail',icon:<RiMailLine/>,detail:'sammyadetoye@gmail.com',href:'mailto:sammyadetoye@gmail.com'},
+        {id:1,label:'Telephone number',icon:<RiPhoneLine/>,detail:'+234-8084857214',href:'tel:08084857214'},
+        {id:3,label:'Instagram',icon:<RiInstagramFill/>,detail:'@lyrical_scroll_',href:'https://www.instagram.com/lyrical_scroll_'},
+        {id:4,label:'Faceook Page',icon:<RiFacebookFill/>,detail:'@Allon Sam',href:'https://www.facebook.com/scaredcrow'},
         {id:5,label:'TikTok',icon:<FaTiktok/>,detail:'@scaredcrow',href:'https://www.tiktok.com/scaredcrow'},
     ]
   return (
     <PageContainer id='contact'>
         <Flex flexDir='column' gap='20px' w='100%' h='100%' textAlign='center'>
-            <Text fontWeight='bold' fontSize='20px'>Contacts</Text>
+            <Box mx='auto'>
+                <Reveal>
+                    <Text fontWeight='bold' fontSize='20px'>Contacts</Text>
+                </Reveal>
+            </Box>
             <Divider/>
             <Grid gridTemplateColumns={'repeat(auto-fit, minmax(15rem, 1fr))'} w='100%' gap='20px'>
                 {contacts.map(contact=>(
-                    <Box w='100%' h='100%' bg='lightgray' p='10px' borderRadius='lg' key={contact.id} cursor='pointer' _hover={{transform:'translateY(-10px)'}} as='a' href={contact.href}>
+                    <Flex flexDir='column' w='100%' h='100%' bg='white' p='10px' borderRadius='lg' border={'2px solid orange'} key={contact.id} cursor='pointer' _hover={{transform:'translateY(-10px)'}} as='a' href={contact.href}>
                         <Flex align='center' justify='center' gap='5px' w='100%' textAlign='center'>
-                            <Icon color='orange' fontSize='24px'>{contact.icon}</Icon>
-                            <Text ml='5px' fontWeight='semibold' fontSize='15px'>{contact.label}</Text>
+                            <Reveal>
+                                <Icon color='orange' fontSize='24px'>{contact.icon}</Icon>
+                            </Reveal>
+                            <Reveal>
+                                <Text ml='5px' fontWeight='semibold' fontSize='15px'>{contact.label}</Text>
+                            </Reveal>
                         </Flex>
-                        <Text fontSize='15px'>{contact.detail}</Text>
-                    </Box>
+                        <Box mx='auto'><Reveal><Text fontSize='15px'>{contact.detail}</Text></Reveal></Box>
+                    </Flex>
                 ))}
             </Grid>
         </Flex>

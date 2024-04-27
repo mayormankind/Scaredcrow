@@ -3,6 +3,7 @@ import React from 'react'
 import PageContainer from '../PageContainer'
 import Divider from '../Divider'
 import { Ri24HoursFill, RiAlbumFill, RiCarFill, RiCarWashingFill } from 'react-icons/ri'
+import { Reveal } from '../Reveal'
 
 export default function ServicesComponent() {
     const services = [
@@ -18,14 +19,24 @@ export default function ServicesComponent() {
   return (
     <PageContainer id='skills'>
         <Flex flexDir='column' gap='20px' textAlign='center' w='100%' h='100%'>
-            <Text fontWeight='bold' fontSize='20px'>Services we offer</Text>
+            <Box mx={'auto'}>
+                <Reveal>
+                    <Text fontWeight='bold' fontSize='20px'>Services we offer</Text>
+                </Reveal>
+            </Box>
             <Divider/>
             <Grid gridTemplateColumns={'repeat(auto-fit, minmax(15rem, 1fr))'} w='100%' gap='20px'>
                 {services.map(service=>(
                     <Flex flexDir={'column'} key={service.id} gap='10px' mx='auto' maxW='250px' w='100%' h='250px' textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange' justify='center' align='center' boxShadow={'lg'}>
-                        <Text as='i' fontSize='30px'>{service.icon}</Text>                        
-                        <Text as='h3' fontWeight={'bold'} color='orange'>{service.title}</Text>
-                        <p>{service.detail}</p>
+                        <Reveal>
+                            <Text as='i' fontSize='30px'>{service.icon}</Text>                        
+                        </Reveal>
+                        <Reveal>
+                            <Text as='h3' fontWeight={'bold'} color='orange'>{service.title}</Text>
+                        </Reveal>
+                        <Reveal>
+                            <p>{service.detail}</p>
+                        </Reveal>
                     </Flex>
                 ))}
             </Grid>

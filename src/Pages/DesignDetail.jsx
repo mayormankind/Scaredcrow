@@ -4,12 +4,12 @@ import Contact from './Contact'
 import Header from '../Components/Header'
 import PageContainer from '../Components/PageContainer'
 import Footer from '../Components/Footer'
-import { FaHome, FaFigma, FaPaintBrush, FaPinterest, FaChrome } from 'react-icons/fa';
+import { FaFigma, FaPinterest, FaChrome } from 'react-icons/fa';
 import { SiAdobeillustrator, SiAdobephotoshop, SiCanva } from 'react-icons/si';
-import { RiChromeFill } from 'react-icons/ri';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import { db } from '../api/firebase';
+import { Reveal } from '../Components/Reveal'
 
 export default function DesignDetail() {
   const [ details, setDetails ] =  useState();
@@ -43,28 +43,42 @@ export default function DesignDetail() {
         <Header bg='black'/>
           <PageContainer>
             <Flex flexDir='column' gap='20px'>
-                <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}} textAlign='center'>{details?.title}</Text>
-                <Flex mx='auto' w={{sm:'70%',base:'100%'}} h='100%'>
+              <Box mx='auto'>
+                <Reveal>
+                  <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}} textAlign='center'>{details?.title}</Text>
+                </Reveal>
+              </Box>
+              <Flex mx='auto' w={{sm:'70%',base:'100%'}} h='100%'>
+                <Reveal>
                   <Image src={currImage} loading='lazy' w='100%' h='100%' objectFit={'cover'}/>
-                </Flex>
-                <Grid gridTemplateColumns={'repeat(auto-fit, minmax(5rem, 1fr))'} w='100%' gap='20px'>
-                  {details?.images.map(image=>(
+                </Reveal>
+              </Flex>
+              <Grid gridTemplateColumns={'repeat(auto-fit, minmax(5rem, 1fr))'} w='100%' gap='20px'>
+                {details?.images.map((image,id)=>(
+                  <Reveal key={id}>
                     <Image src={image} loading='lazy' w='100%' h='100%' onClick={()=>setCurrent(image)}/>
-                  ))}
+                  </Reveal>
+                ))}
                 </Grid>
                 <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>Tools used:</Text>
                 <Flex gap='15px' flexWrap='wrap'>
                   {details?.tools.map(tool=>(
                     <Flex flexDir='column' key={tool.pid}>
-                      <Text as='i' fontSize={{sm:'24px',base:'20px'}} textAlign='center' color={tool.color}>{iconCheck(tool.icon)}</Text>
-                      <Text fontSize={{sm:'15px',base:'13px'}} textTransform={'capitalize'}>{tool.value}</Text>
+                      <Reveal>
+                        <Text as='i' fontSize={{sm:'24px',base:'20px'}} textAlign='center' color={tool.color}>{iconCheck(tool.icon)}</Text>
+                      </Reveal>
+                      <Reveal>
+                        <Text fontSize={{sm:'15px',base:'13px'}} textTransform={'capitalize'}>{tool.value}</Text>
+                      </Reveal>
                     </Flex>
                   ))}
                 </Flex>
                 <Divider/>
                 <Flex flexDir='column'>
-                  <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>About the design:</Text>
-                  <Text as='p'>{details?.overview}</Text>
+                  <Reveal>
+                    <Text as='h3' fontWeight='bold' fontSize={{sm:'2xl',base:'xl'}}>About the design:</Text>
+                  </Reveal>
+                  <Reveal><Text as='p'>{details?.overview}</Text></Reveal>
                 </Flex>
             </Flex>
           </PageContainer>
