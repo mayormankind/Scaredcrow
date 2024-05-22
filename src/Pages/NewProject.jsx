@@ -61,20 +61,20 @@ export default function NewProject() {
         }
     }
     
-    const addProject = async(e) =>{
-        try{
-            await setDoc(doc(db, "scaredcrow-design", uuid()), {
-                pid:uuid(),
-                title: projectInfo.title,
-                overview: projectInfo.overview,
-                tools: checkBoxes,
-                images: imagesLink});
-            alert(`Project ${projectInfo.title} uploaded successfully`);
-        }catch(err){
-            console.log(err)
-            alert('an error occured while uploading project');
-      }
-    }
+    // const addProject = async(e) =>{
+    //     try{
+    //         await setDoc(doc(db, "scaredcrow-design", uuid()), {
+    //             pid:uuid(),
+    //             title: projectInfo.title,
+    //             overview: projectInfo.overview,
+    //             tools: checkBoxes,
+    //             images: imagesLink});
+    //         alert(`Project ${projectInfo.title} uploaded successfully`);
+    //     }catch(err){
+    //         console.log(err)
+    //         alert('an error occured while uploading project');
+    //   }
+    // }
 
   return (
     <Flex w='100%' h='100vh' bg='whitesmoke' pos='relative'>
@@ -107,7 +107,7 @@ export default function NewProject() {
                 </Flex>
                 <Input type='file' display='none' id='images' multiple accept={'images/*'} onChange={selectImages}/>
                 <label htmlFor='images' style={{fontWeight:'bold',textAlign:'center'}}>Select preview images</label>
-                <Button colorScheme='orange' size='md' fontSize='sm' _hover={{variant:'outline'}} onClick={addProject}>Add design</Button>
+                <Button colorScheme='orange' size='md' fontSize='sm' _hover={{variant:'outline'}}>Add design</Button>
             </Flex>
         </Flex>
     </Flex>

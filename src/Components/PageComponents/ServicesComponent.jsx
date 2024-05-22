@@ -6,15 +6,17 @@ import { Ri24HoursFill, RiAlbumFill, RiCarFill, RiCarWashingFill } from 'react-i
 import { Reveal } from '../Reveal'
 
 export default function ServicesComponent() {
+
+
     const services = [
-        {id:0,title:'Logo design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<Ri24HoursFill/>},
-        {id:1,title:'Branding',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiAlbumFill/>},
-        {id:2,title:'Graphics design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiCarFill/>},
-        {id:3,title:'Training',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiCarWashingFill/>},
-        {id:4,title:'Mockup Design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiCarWashingFill/>},
-        {id:5,title:'Book cover Design',detail:'we make top notch designs ranging from your brands to anything you can think of',icon:<RiCarWashingFill/>},
-        {id:6,title:'Poetry writing',detail:'If making you feelings known is a problem, this is your stop. ',icon:<RiCarWashingFill/>},
-        {id:7,title:'Celebration wishes',detail:'If making you feelings known is a problem, this is your stop. ',icon:<RiCarWashingFill/>},
+        {id:0,title:'Logo design',detail:'Unleash the power of your brand with a captivating logo design that speaks volumes from sleek and modern to timeless and elegant art that embody your brand.',icon:<Ri24HoursFill/>},
+        {id:1,title:'Branding',detail:"From defining your brand's voice and visual identity to creating cohesive brand collateral, elevate your brand to new heights with edified business strategies with your audience.",icon:<RiAlbumFill/>},
+        {id:2,title:'Graphics design',detail:'Transform your ideas into visually stunning realities with expert graphic design services tailored to your needs. Whether you need eye-catching marketing materials, engaging social media graphics, or polished corporate presentations.',icon:<RiCarFill/>},
+        {id:3,title:'Training',detail:'From mastering design software to honing your design principles, I provide hands-on training that equips you with the tools and techniques you need to succeed in the world of design.',icon:<RiCarWashingFill/>},
+        {id:4,title:'Mockup Design',detail:"Bring your designs to life and showcase them in their best light with meticulously crafted mockup designs, whether you're presenting a new product concept or pitching a creative project.",icon:<RiCarWashingFill/>},
+        {id:5,title:'Book cover Design',detail:"Authors, capture your readers' attention and convey the essence of your story with a captivating book cover design, from striking imagery to compelling typography.",icon:<RiCarWashingFill/>},
+        {id:6,title:'Poetry writing',detail:"Imagine the beauty of your words with evocative poetry illustrated designs that bring your poetry to life. From elegant typography to captivating visuals, I specialize in creating designs that complement and enhance your poetic expression.",icon:<RiCarWashingFill/>},
+        {id:7,title:'Celebration wishes',detail:"Mark special occasions with heartfelt celebration wishes that convey your sincerest sentiments depending on the occasions and make the recipient feel truly special.",icon:<RiCarWashingFill/>},
     ]
   return (
     <PageContainer id='skills'>

@@ -7,12 +7,12 @@ import Divider from '../Components/Divider'
 import { Reveal } from '../Components/Reveal'
 
 export default function Contact() {
+
     const contacts = [
         {id:0,label:'E-mail',icon:<RiMailLine/>,detail:'sammyadetoye@gmail.com',href:'mailto:sammyadetoye@gmail.com'},
         {id:1,label:'Telephone number',icon:<RiPhoneLine/>,detail:'+234-8084857214',href:'tel:08084857214'},
-        {id:3,label:'Instagram',icon:<RiInstagramFill/>,detail:'@lyrical_scroll_',href:'https://www.instagram.com/lyrical_scroll_'},
-        {id:4,label:'Faceook Page',icon:<RiFacebookFill/>,detail:'@Allon Sam',href:'https://www.facebook.com/scaredcrow'},
-        {id:5,label:'TikTok',icon:<FaTiktok/>,detail:'@scaredcrow',href:'https://www.tiktok.com/scaredcrow'},
+        {id:3,label:'Instagram',icon:<RiInstagramFill/>,detail:'@lyrical_scroll_',href:'https://www.instagram.com/lyrical_scroll_?igsh=MXNkdWRhenJhcWsydA=='},
+        {id:4,label:'Faceook Page',icon:<RiFacebookFill/>,detail:'@Allon Sam',href:'https://www.facebook.com/profile.php?id=100095231984599'},
     ]
   return (
     <PageContainer id='contact'>

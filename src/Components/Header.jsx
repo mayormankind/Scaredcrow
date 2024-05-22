@@ -22,11 +22,11 @@ export default function Header({bg}) {
     <Box p='20px' w='100%' color='white' bg={bg?bg:'transparent'}>
         <Flex justify='space-between' align='center' w='100%' h='100%' mx='auto' maxW='1100px'>
             <Box flex='0.5'>
-                <Reveal>
+                {/* <Reveal>
                     <Link to='/'>
                         <Image src={'images/logo.png'} w='100px'/>
                     </Link>
-                </Reveal>
+                </Reveal> */}
             </Box>
             <SlideFade in={isOpen} display={{md:'none',base:'flex'}}>
                 <Flex align={{sm:'end',base:'center'}} w={{sm:'50%',base:'100%'}} bg={{sm:'transparent',base:'rgb(0,0,0)'}} pos={{sm:'initial',base:'fixed'}} h='100%' top='0' left='0' zIndex={{sm:'10',base:'30'}} justify={{sm:'space-between',base:'space-around'}} flexDir={{sm:'row',base:'column'}} display={{md:'flex', base:menu?'flex':'none'}}>
