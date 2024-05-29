@@ -27,9 +27,9 @@ export default function ServicesComponent() {
                 </Reveal>
             </Box>
             <Divider/>
-            <Grid gridTemplateColumns={'repeat(auto-fit, minmax(15rem, 1fr))'} w='100%' gap='20px'>
+            <Grid gridTemplateColumns={'repeat(auto-fit, minmax(15rem, 1fr))'} w='100%' h='100%' gap='20px'>
                 {services.map(service=>(
-                    <Flex flexDir={'column'} key={service.id} gap='10px' mx='auto' maxW='250px' w='100%' h='250px' textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange' justify='center' align='center' boxShadow={'lg'}>
+                    <Flex flexDir={'column'} key={service.id} gap='10px' mx='auto' maxW='270px' w='100%' h='100%' textAlign={'center'} p={'20px'} borderRadius={'10px'} border='2px solid orange' justify='center' align='center' boxShadow={'lg'}>
                         <Reveal>
                             <Text as='i' fontSize='30px'>{service.icon}</Text>                        
                         </Reveal>

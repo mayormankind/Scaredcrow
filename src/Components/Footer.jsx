@@ -8,7 +8,7 @@ export default function Footer() {
     <Box bg='black' color='white' p='20px 10px' fontSize='12px' w='100%' h='100%'>
         <Flex align='center' justify='space-between' w='100%' h='100%' maxW='1000px' mx='auto'>
           <Reveal>
-            <Text>Copyright © 2023 Scared crow</Text>
+            <Text>Copyright © {new Date().getFullYear()} Scared crow</Text>
           </Reveal>
           <Reveal>
             <Button as='a' href='#home' variant={'link'} size='sm' fontSize='xs' color='white' rightIcon={<RiArrowUpSFill/>}>Back to top</Button>
