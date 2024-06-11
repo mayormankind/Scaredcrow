@@ -23,31 +23,31 @@ export default function NewProject() {
         {value:'pinterest', icon:'FaPinterest', color:'red.500'}
     ]
 
-    // const selectImages = async (e) =>{
-    //     const imagesSelected = e.target.files;
-    //     const imageArray = Array.from(imagesSelected);
-    //     const promises = imageArray.map(async(image) =>{
-    //         try{
-    //             const imagesRef = ref(store,`samuel/${uuid()}`);
-    //             const uploadTask = uploadBytesResumable(imagesRef,image);
-    //             uploadTask.on(
-    //                 (err)=>{},
-    //                 ()=>{
-    //                     getDownloadURL(uploadTask.snapshot.ref).then(async(imageURL)=>{
-    //                         setImagesLink((prev)=>[...prev,imageURL]);
-    //                         return imageURL;
-    //                     })
-    //                 }
-    //             )
-    //         }catch(err){
-    //             console.log(err)
-    //             alert('an error occured while uploading images');
-    //             return null;
-    //         }
-    //     })
-    //     const uploaded = await Promise.all(promises);
-    //     setImages((prev)=> [...prev, ...uploaded]);
-    // }
+    const selectImages = async (e) =>{
+        const imagesSelected = e.target.files;
+        const imageArray = Array.from(imagesSelected);
+        const promises = imageArray.map(async(image) =>{
+            try{
+                const imagesRef = ref(store,`samuel/${uuid()}`);
+                const uploadTask = uploadBytesResumable(imagesRef,image);
+                uploadTask.on(
+                    (err)=>{},
+                    ()=>{
+                        getDownloadURL(uploadTask.snapshot.ref).then(async(imageURL)=>{
+                            setImagesLink((prev)=>[...prev,imageURL]);
+                            return imageURL;
+                        })
+                    }
+                )
+            }catch(err){
+                console.log(err)
+                alert('an error occured while uploading images');
+                return null;
+            }
+        })
+        const uploaded = await Promise.all(promises);
+        setImages((prev)=> [...prev, ...uploaded]);
+    }
 
     const handleBoxes = (option) =>{
         const isSelected = checkBoxes.some(
@@ -61,20 +61,20 @@ export default function NewProject() {
         }
     }
     
-    // const addProject = async(e) =>{
-    //     try{
-    //         await setDoc(doc(db, "scaredcrow-design", uuid()), {
-    //             pid:uuid(),
-    //             title: projectInfo.title,
-    //             overview: projectInfo.overview,
-    //             tools: checkBoxes,
-    //             images: imagesLink});
-    //         alert(`Project ${projectInfo.title} uploaded successfully`);
-    //     }catch(err){
-    //         console.log(err)
-    //         alert('an error occured while uploading project');
-    //   }
-    // }
+    const addProject = async(e) =>{
+        try{
+            await setDoc(doc(db, "scaredcrow-design", uuid()), {
+                pid:uuid(),
+                title: projectInfo.title,
+                overview: projectInfo.overview,
+                tools: checkBoxes,
+                images: imagesLink});
+            alert(`Project ${projectInfo.title} uploaded successfully`);
+        }catch(err){
+            console.log(err)
+            alert('an error occured while uploading project');
+      }
+    }
 
   return (
     <Flex w='100%' h='100vh' bg='whitesmoke' pos='relative'>
@@ -105,10 +105,9 @@ export default function NewProject() {
                         </Grid>
                     </CheckboxGroup>
                 </Flex>
-                <Input type='file' display='none' id='images' multiple accept={'images/*'}/>
-                {/* <Input type='file' display='none' id='images' multiple accept={'images/*'} onChange={selectImages}/> */}
+                <Input type='file' display='none' id='images' multiple accept={'images/*'} onChange={selectImages}/>
                 <label htmlFor='images' style={{fontWeight:'bold',textAlign:'center'}}>Select preview images</label>
-                <Button colorScheme='orange' size='md' fontSize='sm' _hover={{variant:'outline'}}>Add design</Button>
+                <Button colorScheme='orange' size='md' fontSize='sm' _hover={{variant:'outline'}} onClick={addProject}>Add design</Button>
             </Flex>
         </Flex>
     </Flex>

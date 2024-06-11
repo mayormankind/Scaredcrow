@@ -4,7 +4,6 @@ import Footer from './Footer';
 import Contact from '../Pages/Contact';
 import Portfolio from '../Pages/Portfolio';
 import Home from '../Pages/Home';
-import Services from '../Pages/Services';
 import AboutComponent from './PageComponents/AboutComponent';
 import ServicesComponent from './PageComponents/ServicesComponent';
 
